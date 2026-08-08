@@ -8,11 +8,14 @@ const lightbox = new SimpleLightbox('.gallery a', {
 
 export function clearGallery() {
   const gallery = document.querySelector('.gallery');
-  gallery.innerHTML = '';
+  if (gallery) {
+    gallery.innerHTML = '';
+  }
 }
 
 export function createGallery(images) {
   const gallery = document.querySelector('.gallery');
+  if (!gallery) return;
   const markup = images
     .map(image => {
       return `
@@ -49,20 +52,27 @@ export function createGallery(images) {
 
 export function showLoader() {
   const loader = document.querySelector('.loader');
-  loader.classList.add('is-active');
+  if (loader) {
+    loader.classList.add('is-active');
+  }
 }
 
 export function hideLoader() {
   const loader = document.querySelector('.loader');
-  loader.classList.remove('is-active');
+  if (loader) {
+    loader.classList.remove('is-active');
+  }
 }
 
 export function showLoadMoreButton() {
   const loadMoreBtn = document.querySelector('.button-load-more');
-  if (loadMoreBtn) loadMoreBtn.classList.remove('is-hidden');
+  if (loadMoreBtn) {
+    loadMoreBtn.classList.remove('is-hidden');
+  }
 }
-
 export function hideLoadMoreButton() {
   const loadMoreBtn = document.querySelector('.button-load-more');
-  if (loadMoreBtn) loadMoreBtn.classList.add('is-hidden');
+  if (loadMoreBtn) {
+    loadMoreBtn.classList.add('is-hidden');
+  }
 }
